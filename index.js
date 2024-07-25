@@ -1,5 +1,4 @@
 const LetterCompt = (ch) => {
-    console.log(ch)
     let result = []
     for (let index = 0; index < ch.length; index++) {
         const element = ch[index];
@@ -10,15 +9,21 @@ const LetterCompt = (ch) => {
             result[element] = 1
 
         }
-
     }
-    const resultch = ''
-    result.forEach(element => {
-        const resultch =element;
+    let resultch = ''
+    const list = Object.keys(result)
+    for (const key of list) {
+        const element = result[key];
+        resultch += `${key}:`
+        for (let index = 0; index < element; index++) {
+            resultch += '*'
+        }
+        if (key !== list[list.length - 1]) {
+            resultch += ','
+        }
+    }
 
-    });
-  
-    return result
+    return resultch
 }
 
-console.table(LetterCompt('Chamms'))
+console.log(LetterCompt('Chamms'))
